@@ -12,12 +12,13 @@ public
 class Tile
         extends Label {
 
-    private Location location;
-    private boolean  merged;
-    private int      value;
+    private Location location = null;
+    private boolean  merged   = false;
+    private int      value    = 0;
 
     private
-    Tile( int value ) {
+    Tile( final int value ) {
+        super();
         // TO-DO. Step 6. Create tile
         if ( Game2048.STEP >= 6 ) {
             final int squareSize = Board.CELL_SIZE - 13;
@@ -45,7 +46,7 @@ class Tile
     Tile newRandomTile() {
         // TO-DO. Step 7. Create random value, 90% chance 2, 10% 4
         if ( Game2048.STEP >= 7 ) {
-            return newTile(Math.random() < 0.9 ? 2 : 4);
+            return newTile(( Math.random() < 0.9 ) ? 2 : 4);
         }
         return newTile(2);
     }
@@ -56,7 +57,7 @@ class Tile
      * @return
      */
     public static
-    Tile newTile( int value ) {
+    Tile newTile( final int value ) {
         return new Tile(value);
     }
 
@@ -72,7 +73,7 @@ class Tile
      * @param location
      */
     public
-    void setLocation( Location location ) {
+    void setLocation( final Location location ) {
         this.location = location;
     }
 
@@ -88,7 +89,7 @@ class Tile
      * @param value
      */
     public
-    void setValue( int value ) {
+    void setValue( final int value ) {
         this.value = value;
     }
 
@@ -98,9 +99,9 @@ class Tile
      * @return
      */
     public
-    boolean isMergeable( Tile anotherTile ) {
+    boolean isMergeable( final Tile anotherTile ) {
         // TO-DO: Step 27. Check it this.tile can be merged with anotherTile
-        return Game2048.STEP >= 27 && anotherTile != null && value == anotherTile.value;
+        return ( Game2048.STEP >= 27 ) && ( anotherTile != null ) && ( value == anotherTile.value );
     }
 
     /**
@@ -115,7 +116,7 @@ class Tile
      * @param merged
      */
     public
-    void setMerged( boolean merged ) {
+    void setMerged( final boolean merged ) {
         this.merged = merged;
     }
 
@@ -123,7 +124,7 @@ class Tile
      * @param another
      */
     public
-    void merge( Tile another ) {
+    void merge( final Tile another ) {
         // TO-DO: Step 27. Add to tile's value the value of the tile to be merged to,
         // set the text with the new value and replace the old style ‘game-title-“-value with the new one
         if ( Game2048.STEP >= 27 ) {
