@@ -41,12 +41,12 @@ class NTupleBoard
      */
     public static final int             TILE_NUMBER        = 4 << 2;
     private             List< Integer > availableSpaceList = null;
-    private boolean         canMove;
-    private boolean         iWin;
-    private boolean         isFull;
+    private boolean canMove;
+    private boolean iWin;
+    private boolean isFull;
     private boolean needToAddTile = false;
-    private int             partialScore;
-    private SimpleTile[]    tiles;
+    private int          partialScore;
+    private SimpleTile[] tiles;
 
     /**
      * @param tiles
@@ -126,7 +126,7 @@ class NTupleBoard
         copy.canMove = canMove;
         copy.isFull = isFull;
         copy.availableSpaceList = new ArrayList<>(TILE_NUMBER);
-        availableSpaceList.forEach(( space ) -> copy.availableSpaceList.add(space));
+        copy.availableSpaceList.addAll(availableSpaceList);
         copy.needToAddTile = needToAddTile;
         copy.partialScore = partialScore;
         return copy;
@@ -323,8 +323,8 @@ class NTupleBoard
     }
 
     /**
-     * actualizamos la traducción del tablero como entrada del perceptron, encriptado y normalizado. También se
-     * actualiza el calculo de si este es un tablero final o no.
+     * actualizamos la traducción del tablero como entrada del perceptron, encriptado y normalizado. También se actualiza el calculo de si este es un
+     * tablero final o no.
      */
     public
     void updateInternalState() {
