@@ -39,8 +39,7 @@ class GameManager
     private          int                tilesWereMoved     = 0;
 
     /**
-     * GameManager is a Group containing a Board that holds a grid and the score a Map holds the location of the tiles
-     * in the grid
+     * GameManager is a Group containing a Board that holds a grid and the score a Map holds the location of the tiles in the grid
      * <p>
      * The purpose of the game is sum the value of the tiles up to 2048 points Based on the Javascript version:
      * https://github.com/gabrielecirulli/2048
@@ -156,8 +155,7 @@ class GameManager
     }
 
     /**
-     * Animation that creates a pop effect when two tiles merge by increasing the tile scale to 120% at the middle, and
-     * then going back to 100%
+     * Animation that creates a pop effect when two tiles merge by increasing the tile scale to 120% at the middle, and then going back to 100%
      *
      * @param tile to be animated
      *
@@ -252,7 +250,7 @@ class GameManager
 
     @Override
     public
-    double deNormalizeValueFromPerceptronOutput( final Object value ) { //TODO esto esta bien que sea Object?
+    double deNormalizeValueFromPerceptronOutput( final Object value ) {
         return (Double) value;
     }
 
@@ -447,9 +445,8 @@ class GameManager
     /**
      * Finds the number of pairs of tiles that can be merged
      * <p>
-     * This method is called only when the grid is full of tiles, what makes the use of Optional unnecessary, but it
-     * could be used when the board is not full to find the number of pairs of mergeable tiles and provide a hint for
-     * the user, for instance
+     * This method is called only when the grid is full of tiles, what makes the use of Optional unnecessary, but it could be used when the board is
+     * not full to find the number of pairs of mergeable tiles and provide a hint for the user, for instance
      *
      * @return the number of pairs of tiles that can be merged
      */
@@ -484,8 +481,8 @@ class GameManager
     }
 
     /**
-     * Moves the tiles according to given direction At any move, takes care of merge tiles, add a new one and perform
-     * the required animations It updates the score and checks if the user won the game or if the game is over
+     * Moves the tiles according to given direction At any move, takes care of merge tiles, add a new one and perform the required animations It
+     * updates the score and checks if the user won the game or if the game is over
      *
      * @param direction is the selected direction to move the tiles
      */

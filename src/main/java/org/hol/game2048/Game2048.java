@@ -110,7 +110,10 @@ class Game2048
                     final Direction bestAction = (Direction) TDLambdaLearning.computeBestPossibleAction(gameManager, ELearningStyle.AFTER_STATE,
                             gameManager.getNTupleBoard(),
                             possibleActions,
-                            null, computeParallelBestPossibleAction, random, null).getAction();
+                            null,
+                            computeParallelBestPossibleAction,
+                            random,
+                            null).getAction();
                     gameManager.move(bestAction);
                 }
             });
