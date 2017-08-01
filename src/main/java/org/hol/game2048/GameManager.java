@@ -256,7 +256,7 @@ class GameManager
 
     @Override
     public
-    Object[] evaluateBoardWithPerceptron( final IState state ) {
+    Object[] evaluateStateWithPerceptron( final IState state ) {
         return new Object[] { nTupleSystem.getComputation((NTupleBoard) state) };
     }
 
