@@ -1,7 +1,6 @@
 package org.hol.game2048;
 
 import ar.edu.unrc.coeus.tdlearning.interfaces.IAction;
-import ar.edu.unrc.coeus.tdlearning.interfaces.IActor;
 import ar.edu.unrc.coeus.tdlearning.interfaces.IProblemRunner;
 import ar.edu.unrc.coeus.tdlearning.interfaces.IState;
 import ar.edu.unrc.coeus.tdlearning.training.ntuple.NTupleSystem;
@@ -242,8 +241,7 @@ class GameManager
     @Override
     public
     Double computeNumericRepresentationFor(
-            final Object[] output,
-            final IActor actor
+            final Object[] output
     ) {
         return (Double) output[0];
     }
@@ -256,7 +254,7 @@ class GameManager
 
     @Override
     public
-    Object[] evaluateBoardWithPerceptron( final IState state ) {
+    Object[] evaluateStateWithPerceptron( final IState state ) {
         return new Object[] { nTupleSystem.getComputation((NTupleBoard) state) };
     }
 
