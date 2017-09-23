@@ -108,8 +108,7 @@ class Game2048
                 } else if ( ( keyCode == KeyCode.SPACE ) && gameManager.getNTupleBoard().isCanMove() ) {
                     final List< IAction > possibleActions = gameManager.listAllPossibleActions(gameManager.getNTupleBoard());
                     final Direction bestAction = (Direction) TDLambdaLearning.computeBestPossibleAction(gameManager, ELearningStyle.AFTER_STATE,
-                            gameManager.getNTupleBoard(),
-                            possibleActions, computeBestPossibleActionConcurrently,
+                            gameManager.getNTupleBoard(), possibleActions, computeBestPossibleActionConcurrently,
                             random,
                             null).getAction();
                     gameManager.move(bestAction);
