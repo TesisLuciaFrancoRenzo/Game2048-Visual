@@ -8,10 +8,12 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -312,17 +314,25 @@ class Board
         // In bTry also remove tiles and reset all game properties
         if ( Game2048.STEP >= 39 ) {
             bTry.getStyleClass().add("game-button");
-            bTry.setOnAction(e -> {
-                getChildren().removeAll(overlay, buttonsOverlay);
-                gridGroup.getChildren().removeIf(c -> c instanceof Tile);
-                resetGame.set(false);
-                gameScoreProperty.set(0);
-                gameWonProperty.set(false);
-                gameOverProperty.set(false);
-                resetGame.set(true);
+            bTry.setOnMousePressed(new EventHandler< MouseEvent >() {
+                public
+                void handle( MouseEvent me ) {
+                    getChildren().removeAll(overlay, buttonsOverlay);
+                    gridGroup.getChildren().removeIf(c -> c instanceof Tile);
+                    resetGame.set(false);
+                    gameScoreProperty.set(0);
+                    gameWonProperty.set(false);
+                    gameOverProperty.set(false);
+                    resetGame.set(true);
+                }
             });
             bContinue.getStyleClass().add("game-button");
-            bContinue.setOnAction(e -> getChildren().removeAll(overlay, buttonsOverlay));
+            bContinue.setOnMousePressed(new EventHandler< MouseEvent >() {
+                public
+                void handle( MouseEvent me ) {
+                    getChildren().removeAll(overlay, buttonsOverlay);
+                }
+            });
         }
         // TO-DO: Step 40. Add listeners to game over, won properties. Set style to
         // overlay, set text and its style, add buttons, and add overlay to board
