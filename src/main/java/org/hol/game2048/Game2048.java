@@ -180,6 +180,7 @@ class Game2048
 
         primaryStage.setTitle("2048FX");
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 }
