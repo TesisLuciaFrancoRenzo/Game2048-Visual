@@ -94,11 +94,6 @@ class NTupleBoard
         return false;
     }
 
-    /**
-     * @param obj
-     *
-     * @return
-     */
     @Override
     public
     boolean equals( final Object obj ) {
@@ -183,14 +178,6 @@ class NTupleBoard
     }
 
     /**
-     * @return the partialScore
-     */
-    public
-    int getPartialScore() {
-        return partialScore;
-    }
-
-    /**
      * @param partialScore the partialScore to set
      */
     public
@@ -212,17 +199,6 @@ class NTupleBoard
         return tiles;
     }
 
-    /**
-     * @param tiles the tiles to set
-     */
-    public
-    void setTiles( final SimpleTile[] tiles ) {
-        this.tiles = tiles;
-    }
-
-    /**
-     * @return
-     */
     @Override
     public
     int hashCode() {
@@ -243,14 +219,6 @@ class NTupleBoard
     public
     boolean isCanMove() {
         return canMove;
-    }
-
-    /**
-     * @param canMove the canMove to set
-     */
-    public
-    void setCanMove( final boolean canMove ) {
-        this.canMove = canMove;
     }
 
     /**
@@ -277,22 +245,6 @@ class NTupleBoard
     }
 
     /**
-     * @return the iWin
-     */
-    public
-    boolean isiWin() {
-        return iWin;
-    }
-
-    /**
-     * @param iWin the iWin to set
-     */
-    public
-    void setiWin( final boolean iWin ) {
-        this.iWin = iWin;
-    }
-
-    /**
      * @param needToAddTile the needToAddTile to set
      */
     public
@@ -308,12 +260,6 @@ class NTupleBoard
         iWin = true;
     }
 
-    /**
-     * @param x
-     * @param y
-     *
-     * @return
-     */
     public
     SimpleTile tileAt(
             final int x,

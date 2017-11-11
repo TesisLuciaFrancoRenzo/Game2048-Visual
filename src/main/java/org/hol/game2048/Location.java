@@ -68,38 +68,6 @@ class Location {
     /**
      * @return
      */
-    public
-    int getX() {
-        return x;
-    }
-
-    /**
-     * @param x
-     */
-    public
-    void setX( final int x ) {
-        this.x = x;
-    }
-
-    /**
-     * @return
-     */
-    public
-    int getY() {
-        return y;
-    }
-
-    /**
-     * @param y
-     */
-    public
-    void setY( final int y ) {
-        this.y = y;
-    }
-
-    /**
-     * @return
-     */
     @Override
     public
     int hashCode() {

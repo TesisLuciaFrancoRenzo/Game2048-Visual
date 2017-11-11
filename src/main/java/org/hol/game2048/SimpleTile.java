@@ -24,9 +24,6 @@ class SimpleTile
         this(0);
     }
 
-    /**
-     * @param num
-     */
     public
     SimpleTile( final int num ) {
         super();

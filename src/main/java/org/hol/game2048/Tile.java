@@ -86,14 +86,6 @@ class Tile
     }
 
     /**
-     * @param value
-     */
-    public
-    void setValue( final int value ) {
-        this.value = value;
-    }
-
-    /**
      * @param anotherTile
      *
      * @return

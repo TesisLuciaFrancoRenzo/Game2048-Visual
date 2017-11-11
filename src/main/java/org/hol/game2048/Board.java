@@ -281,14 +281,6 @@ class Board
     }
 
     /**
-     * @return
-     */
-    public
-    int getPoints() {
-        return gameMovePoints.get();
-    }
-
-    /**
      * @param points
      */
     public
