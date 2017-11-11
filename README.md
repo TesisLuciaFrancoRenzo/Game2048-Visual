@@ -2,9 +2,10 @@
 	<img src="https://i.imgur.com/rqOh0KW.png" alt="IA">
 </h1>
 
-# Caso de estudio para la librería Coeus: Juego 2048 Visual.
+# Caso de estudio para la librería Coeus: DEMO - Juego 2048 Visual.
 Este proyecto es un caso de prueba de la librería [Coeus](https://github.com/TesisLuciaFrancoRenzo/coeus) 
 en la cual se entrenó un perceptron del estilo NTupla para ganar un 95.6% de las veces.
+Este juego es interactivo.
 
 ## El Juego
 2048 es un juego Solitario de tipo rompecabezas creado por Gabriele Cirulli y 
