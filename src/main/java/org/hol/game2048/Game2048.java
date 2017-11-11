@@ -25,7 +25,7 @@ import java.util.logging.Logger;
 /**
  * JAVAONE 2014 - Create the Game 2048 with Java 8 and JavaFX [HOL3244]
  *
- * @authors bruno.borges@oracle.com @brunoborges & pereda@eii.uva.es @jperedadnr
+ * @author bruno.borges@oracle.com @brunoborges and pereda@eii.uva.es @jperedadnr
  */
 public
 class Game2048
