@@ -57,7 +57,7 @@ usar.
 - `gradlew javadoc`:  compila javadoc.
 
 ## Instrucciones de uso
-`java -jar ar.edu.unrc.game2048.experiments.TestGenerator [parameters]`
+`java -jar coeus.game2048.visual-1.0.0.jar`
 
 - Las flechas del teclado mueven las fichas del tablero en la dirección deseada.
 - La barra espaciadora hace que juegue la IA en el turno actual.
