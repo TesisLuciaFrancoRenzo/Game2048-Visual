@@ -5,14 +5,6 @@ task wrapper(type: Wrapper) {
     gradleVersion = '4.2.1'
 }
 
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
-}
-
-javadoc {
-    options.encoding = 'UTF-8'
-}
-
 //https://docs.gradle.org/current/userguide/standard_plugins.html
 apply plugin: 'idea'
 apply plugin: 'java'
@@ -20,9 +12,17 @@ apply plugin: 'java'
 apply plugin: 'application' //https://docs.gradle.org/current/userguide/application_plugin.html
 apply plugin: 'distribution'
 
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
 compileJava {
     sourceCompatibility = '1.8'
     targetCompatibility = '1.8'
+    options.encoding = 'UTF-8'
+}
+
+javadoc {
     options.encoding = 'UTF-8'
 }
 
@@ -43,7 +43,7 @@ jfxmobile {
 //create a single Jar with all dependencies
 task finalFatJar(type: Jar) {
     manifest {
-        attributes ('Implementation-Title': rootProject.name,
+        attributes('Implementation-Title': rootProject.name,
                 'Application-Name': 'Coeus',
                 'Implementation-Version': version,
                 'Built-By': 'Lucia Bressan, Renzo Bianchini, Franco Gastón Pellegrini',
