@@ -44,7 +44,7 @@ jfxmobile {
 task finalFatJar(type: Jar) {
     manifest {
         attributes('Implementation-Title': rootProject.name,
-                'Application-Name': 'Coeus',
+                'Application-Name': 'Game 2048 Visual',
                 'Implementation-Version': version,
                 'Built-By': 'Lucia Bressan, Renzo Bianchini, Franco Gastón Pellegrini',
                 'Built-Date': new Date(),
