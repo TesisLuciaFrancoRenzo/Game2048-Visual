@@ -3,6 +3,8 @@ package org.hol.game2048;
 import ar.edu.unrc.coeus.tdlearning.interfaces.IAction;
 import ar.edu.unrc.coeus.tdlearning.interfaces.IProblemRunner;
 import ar.edu.unrc.coeus.tdlearning.interfaces.IState;
+import ar.edu.unrc.coeus.tdlearning.learning.ELearningStyle;
+import ar.edu.unrc.coeus.tdlearning.learning.TDLambdaLearning;
 import ar.edu.unrc.coeus.tdlearning.training.ntuple.NTupleSystem;
 import javafx.animation.*;
 import javafx.scene.Group;
@@ -33,6 +35,8 @@ class GameManager
     private final Set< Tile >           mergedToBeRemoved = new HashSet<>();
     private final NTupleSystem nTupleSystem;
     private final    ParallelTransition parallelTransition = new ParallelTransition();
+    private final    Random             random             = new Random();
+    private          boolean            automatic          = false;
     private          Board              board              = null;
     private volatile boolean            movingTiles        = false;
     private          int                tilesWereMoved     = 0;
@@ -250,6 +254,21 @@ class GameManager
     public
     double deNormalizeValueFromPerceptronOutput( final Object value ) {
         return (Double) value;
+    }
+
+    public
+    void doMove() {
+        if ( getNTupleBoard().canMove() ) {
+            final List< IAction > possibleActions = listAllPossibleActions(getNTupleBoard());
+            final Direction bestAction = (Direction) TDLambdaLearning.computeBestPossibleAction(this,
+                    ELearningStyle.AFTER_STATE,
+                    getNTupleBoard(),
+                    possibleActions,
+                    false,
+                    random,
+                    null).getAction();
+            move(bestAction);
+        }
     }
 
     @Override
@@ -655,6 +674,7 @@ class GameManager
                         else if ( Game2048.STEP >= 25 ) {
                             if ( tilesWereMoved > 0 ) {
                                 addAndAnimateRandomTile(randomAvailableLocation);
+                                if ( automatic ) { doMove(); }
                             }
                         }
                     } else if ( Game2048.STEP < 37 ) {
@@ -670,7 +690,6 @@ class GameManager
                         }
                     }
                 }
-
             });
             synchronized ( gameGrid ) {
                 movingTiles = true;
@@ -790,5 +809,10 @@ class GameManager
                 redrawTilesInGameGrid();
             }
         }
+    }
+
+    public
+    void switchAutomatic() {
+        automatic = !automatic;
     }
 }

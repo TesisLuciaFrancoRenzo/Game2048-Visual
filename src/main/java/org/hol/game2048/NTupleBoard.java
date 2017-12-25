@@ -217,7 +217,7 @@ class NTupleBoard
      * @return the canMove
      */
     public
-    boolean isCanMove() {
+    boolean canMove() {
         return canMove;
     }
 

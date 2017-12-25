@@ -1,8 +1,5 @@
 package org.hol.game2048;
 
-import ar.edu.unrc.coeus.tdlearning.interfaces.IAction;
-import ar.edu.unrc.coeus.tdlearning.learning.ELearningStyle;
-import ar.edu.unrc.coeus.tdlearning.learning.TDLambdaLearning;
 import ar.edu.unrc.coeus.tdlearning.training.ntuple.NTupleSystem;
 import ar.edu.unrc.coeus.tdlearning.training.ntuple.SamplePointValue;
 import ar.edu.unrc.coeus.utils.FunctionUtils;
@@ -16,8 +13,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 import java.util.function.Function;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,11 +26,7 @@ public
 class Game2048
         extends Application {
 
-    /**
-     *
-     */
     public static final int          STEP                                  = 45;
-    private final       Random       random                                = new Random();
     private             boolean      computeBestPossibleActionConcurrently = false;
     private             GameManager  gameManager                           = null;
     private             NTupleSystem nTupleSystem                          = null;
@@ -129,7 +120,6 @@ class Game2048
             final int                        maxTile                   = 15;
             final int                        nTuplesQuantity           = 17;
             final int                        nTuplesLength             = 4;
-            computeBestPossibleActionConcurrently = false;
 
             configureNTupleSystem(perceptronFile,
                     activationFunction,
@@ -164,16 +154,10 @@ class Game2048
                 if ( keyCode.isArrowKey() ) {
                     final Direction dir = Direction.valueFor(keyCode);
                     gameManager.move(dir);
-                } else if ( ( keyCode == KeyCode.SPACE ) && gameManager.getNTupleBoard().isCanMove() ) {
-                    final List< IAction > possibleActions = gameManager.listAllPossibleActions(gameManager.getNTupleBoard());
-                    final Direction bestAction = (Direction) TDLambdaLearning.computeBestPossibleAction(gameManager,
-                            ELearningStyle.AFTER_STATE,
-                            gameManager.getNTupleBoard(),
-                            possibleActions,
-                            computeBestPossibleActionConcurrently,
-                            random,
-                            null).getAction();
-                    gameManager.move(bestAction);
+                } else if ( keyCode == KeyCode.A ) {
+                    gameManager.switchAutomatic();
+                } else if ( ( keyCode == KeyCode.SPACE ) ) {
+                    gameManager.doMove();
                 }
             });
         }
